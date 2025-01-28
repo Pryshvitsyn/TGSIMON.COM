@@ -3,178 +3,311 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TGSIMON - Protecting Metal for 20 Years</title>
+    <title>TGSIMON - Leader in Anticorrosion Protection</title>
     <style>
+        /* General Styles */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            background-color: #f4f4f9;
+            color: #333;
+            position: relative;
         }
 
+        /* Header */
         header {
-            position: relative;
-            width: 100%;
-            height: 60vh;
-            background: url('header-image.jpg') center/cover no-repeat;
+            background-color: #005f73;
             color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            padding: 20px;
             text-align: center;
         }
 
         header h1 {
-            font-size: 3rem;
             margin: 0;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            font-size: 2.5em;
         }
 
         header p {
-            font-size: 1.2rem;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+            margin: 5px 0;
+            font-size: 1.2em;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
+        /* Floating Contact Icon */
+        .contact-icon {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            background-color: #005f73;
+            color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            z-index: 1000;
         }
 
+        .contact-icon:hover {
+            background-color: #00454f;
+        }
+
+        /* Navigation Menu */
+        .nav-menu {
+            position: fixed;
+            top: 10px;
+            right: 20px;
+            background-color: #005f73;
+            border-radius: 5px;
+            padding: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 1em;
+        }
+
+        .nav-menu a:hover {
+            text-decoration: underline;
+        }
+
+        /* Carousel */
         .carousel {
             display: flex;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            gap: 10px;
-            margin: 20px 0;
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         .carousel img {
             width: 100%;
-            max-width: 600px;
-            height: auto;
-            scroll-snap-align: center;
-            border-radius: 8px;
+            transition: transform 0.5s ease;
         }
 
-        .description {
-            text-align: center;
-            margin: 20px 0;
+        .carousel-buttons {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
         }
 
-        .description p {
-            font-size: 1.2rem;
-            line-height: 1.5;
+        .carousel-buttons button {
+            background-color: rgba(0, 0, 0, 0.5);
+            border: none;
+            color: white;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 1.2em;
+            border-radius: 50%;
         }
 
-        .contact-form {
-            background: #f4f4f4;
+        .carousel-buttons button:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        /* Section Styles */
+        section {
             padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        section h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+            color: #005f73;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         .contact-form label {
             display: block;
-            margin-bottom: 5px;
+            margin: 10px 0 5px;
             font-weight: bold;
         }
 
-        .contact-form input, .contact-form textarea, .contact-form button {
+        .contact-form input, .contact-form textarea {
             width: 100%;
             padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
         }
 
         .contact-form button {
-            background: #007BFF;
+            background-color: #005f73;
             color: white;
+            padding: 10px 20px;
             border: none;
+            border-radius: 5px;
+            font-size: 1em;
             cursor: pointer;
         }
 
         .contact-form button:hover {
-            background: #0056b3;
+            background-color: #00454f;
         }
 
+        /* Footer */
         footer {
-            background: #333;
+            background-color: #003a4f;
             color: white;
-            padding: 20px;
             text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+            font-size: 0.9em;
         }
 
-        footer a {
-            color: #007BFF;
-            text-decoration: none;
+        /* Social Media Links */
+        .social-media {
+            margin: 10px 0;
+        }
+
+        .social-media a {
             margin: 0 10px;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
         }
 
-        footer a:hover {
-            text-decoration: underline;
+        .social-media a:hover {
+            color: #00b4d8;
         }
 
+        /* Responsive Design */
         @media (max-width: 768px) {
             header h1 {
-                font-size: 2rem;
+                font-size: 2em;
             }
 
-            header p {
-                font-size: 1rem;
+            .carousel {
+                max-width: 100%;
+            }
+
+            .contact-form {
+                padding: 15px;
+            }
+
+            .carousel-buttons button {
+                padding: 8px;
+                font-size: 1em;
+            }
+
+            .nav-menu {
+                font-size: 0.9em;
+                padding: 8px;
+            }
+
+            .contact-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2em;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <div>
-            <h1>20 Years of Expertise</h1>
-            <p>Protecting Pipes and Metal Constructions from Rust and Corrosion Worldwide</p>
-        </div>
+        <h1>TGSIMON</h1>
+        <p>Leader in Anticorrosion Protection of Pipes for Over 20 Years</p>
+        <p>Serving Europe, Asia, Australia, and Post-Soviet Countries</p>
     </header>
 
-    <div class="container">
-        <div class="description">
-            <p>
-                At TGSIMON, we have been delivering cutting-edge solutions for protecting pipes and metal constructions
-                from rust and corrosion for 20 years. From the humid tropics to the dry deserts, our expertise shines in
-                every project we undertake. We combine knowledge, experience, and innovation to tackle unexpected
-                challenges and ensure long-lasting results.
-            </p>
-        </div>
-
-        <div class="carousel">
-            <img src="carousel1.jpg" alt="Project 1">
-            <img src="carousel2.jpg" alt="Project 2">
-            <img src="carousel3.jpg" alt="Project 3">
-        </div>
-
-        <div class="contact-form">
-            <h2>Contact Us</h2>
-            <form>
-                <label for="name">Your Name</label>
-                <input type="text" id="name" name="name" required>
-
-                <label for="email">Your Email</label>
-                <input type="email" id="email" name="email" required>
-
-                <label for="message">Your Message</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
-
-                <button type="submit">Send</button>
-            </form>
-        </div>
+    <div class="nav-menu">
+        <a href="#">Home</a>
+        <a href="#works">Our Works</a>
+        <a href="#contact">Contact Us</a>
     </div>
 
+    <section id="works">
+        <h2>Our Works</h2>
+        <div class="carousel">
+            <img src="work1.jpg" alt="Work 1">
+            <img src="work2.jpg" alt="Work 2">
+            <img src="work3.jpg" alt="Work 3">
+            <div class="carousel-buttons">
+                <button id="prev">&#10094;</button>
+                <button id="next">&#10095;</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <form class="contact-form" action="#" method="POST">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Proposition Details:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
     <footer>
-        <p>Follow us on:</p>
-        <a href="https://facebook.com">Facebook</a>
-        <a href="https://twitter.com">Twitter</a>
-        <a href="https://instagram.com">Instagram</a>
-        <a href="https://linkedin.com">LinkedIn</a>
         <p>&copy; 2025 TGSIMON. All Rights Reserved.</p>
+        <div class="social-media">
+            <a href="#" target="_blank">Facebook</a>
+            <a href="#" target="_blank">Twitter</a>
+            <a href="#" target="_blank">LinkedIn</a>
+            <a href="#" target="_blank">Instagram</a>
+        </div>
     </footer>
+
+    <div class="contact-icon" onclick="document.getElementById('contact').scrollIntoView();">
+        &#9993;
+    </div>
+
+    <script>
+        const carousel = document.querySelector('.carousel');
+        const images = carousel.querySelectorAll('img');
+        const prevButton = document.getElementById('prev');
+        const nextButton = document.getElementById('next');
+        let index = 0;
+
+        function showImage(idx) {
+            images.forEach((img, i) => {
+                img.style.transform = `translateX(${(i - idx) * 100}%)`;
+            });
+        }
+
+        prevButton.addEventListener('click', () => {
+            index = (index - 1 + images.length) % images.length;
+            showImage(index);
+        });
+
+        nextButton.addEventListener('click', () => {
+            index = (index + 1) % images.length;
+            showImage(index);
+        });
+
+        showImage(index);
+    </script>
 </body>
 </html>
