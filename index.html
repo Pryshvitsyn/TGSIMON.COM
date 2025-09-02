@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TGSIMON — Anti‑Corrosion Protection</title>
+  <meta name="description" content="TGSIMON provides anti‑corrosion protection, maintenance, and remediation. Asia HQ with strong presence in Sweden via 3CCC partnership." />
+  <link rel="stylesheet" href="css/styles.css" />
+  <script>
+    /* ====== CONFIG ======
+       Put your Google Apps Script Web App URL below (Deploy → Web app → Anyone with the link).
+       The script should accept JSON and append to a Google Sheet.
+       Example server expects payload:
+       { type: "chat", sessionId, role: "user|assistant", text, url }
+       or { type: "form", company, email, message, url }
+    */
+    window.WEB_APP_URL = ""; // <-- paste your Apps Script Web App URL here
+  </script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#">
+        <img src="images/logo.png" alt="TGSIMON logo" class="brand-logo" />
+        <span class="brand-name">TGSIMON</span>
+      </a>
+      <nav class="nav">
+        <a href="#overview">Overview</a>
+        <a href="#partner">3CCC Partnership</a>
+        <a href="#works">Completed Works</a>
+        <a href="#contact">Contact</a>
+        <button class="btn btn-secondary" data-open-chat>Online Assistant</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="top">
+    <img src="images/hero/hero.png" class="hero-image" alt="Hero">
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <h1>Advanced Anti‑Corrosion Protection for Pipelines & Industrial Assets</h1>
+      <p>End‑to‑end corrosion control — surface preparation, coating & lining systems, inspection, maintenance, and remediation after failures by other providers. Strong presence in Asia with Swedish partnership.</p>
+      <div class="hero-cta">
+        <a href="#contact" class="btn btn-primary">Request a Quote</a>
+        <button class="btn btn-secondary" data-open-chat>Chat with Assistant</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Overview -->
+  <section id="overview" class="section">
+    <div class="container grid-2">
+      <div>
+        <h2>Overview</h2>
+        <p>TGSIMON delivers field and shop services for critical assets: pipelines, storage, marine, utilities, and industrial plants. We combine rapid response with rigorous QA/QC to extend asset life and reduce downtime.</p>
+        <ul class="ticks">
+          <li>Asia HQ — global reach</li>
+          <li>Strong presence in Sweden & EU (3CCC partnership)</li>
+          <li>Fast remediation after others’ mistakes</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Capabilities</h3>
+        <ul class="list">
+          <li>Surface preparation: abrasive, hydro‑blasting, mechanical</li>
+          <li>Coatings & linings: epoxy, PU, ceramic, rubber‑ceramic</li>
+          <li>Inspection & QA/QC: DFT, adhesion, holidays, climatic control</li>
+          <li>Maintenance programs & lifecycle extensions</li>
+          <li>Failure analysis & root‑cause reporting</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partnership -->
+  <section id="partner" class="section gray">
+    <div class="container">
+      <h2>Partnership with 3CCC (Sweden)</h2>
+      <p class="lead">Scandinavian materials and engineered systems combined with our local delivery in Asia and EU. We can add multiple products here later.</p>
+      <div class="cards">
+        <article class="card">
+          <h3>Photo 1</h3>
+          <p>Placeholder for a product/system image and link.</p>
+        </article>
+        <article class="card">
+          <h3>Photo 2</h3>
+          <p>Placeholder for a product/system image and link.</p>
+        </article>
+        <article class="card">
+          <h3>Photo 3</h3>
+          <p>Placeholder for a product/system image and link.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Completed Works: Carousel 6 photos -->
+  <section id="works" class="section">
+    <div class="container">
+      <h2>Completed Works</h2>
+      <div class="carousel" data-index="0">
+        <button class="car-btn prev" aria-label="Previous">‹</button>
+        <div class="car-track">
+          <figure class="car-item">
+            <img src="images/works/example1.jpg" alt="Example 1">
+            <figcaption>Example 1 — Short description for the completed job.</figcaption>
+          </figure>
+          <figure class="car-item">
+            <img src="images/works/example2.jpg" alt="Example 2">
+            <figcaption>Example 2 — Short description for the completed job.</figcaption>
+          </figure>
+          <figure class="car-item">
+            <img src="images/works/example3.jpg" alt="Example 3">
+            <figcaption>Example 3 — Short description for the completed job.</figcaption>
+          </figure>
+          <figure class="car-item">
+            <img src="images/works/example4.jpg" alt="Example 4">
+            <figcaption>Example 4 — Short description for the completed job.</figcaption>
+          </figure>
+          <figure class="car-item">
+            <img src="images/works/example5.jpg" alt="Example 5">
+            <figcaption>Example 5 — Short description for the completed job.</figcaption>
+          </figure>
+          <figure class="car-item">
+            <img src="images/works/example6.jpg" alt="Example 6">
+            <figcaption>Example 6 — Short description for the completed job.</figcaption>
+          </figure>
+        </div>
+        <button class="car-btn next" aria-label="Next">›</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section gray">
+    <div class="container grid-2">
+      <div>
+        <h2>Contact</h2>
+        <p><strong>Address:</strong> 15 Industrial Park Road, Singapore 408600</p>
+        <p><strong>Phone/WhatsApp:</strong> +65 8888 0000</p>
+        <p><strong>Email:</strong> contact@tgsimon.com</p>
+        <p>Send us a quick note — we’ll get back within 24 hours.</p>
+      </div>
+      <form id="quote-form" class="card form">
+        <label>Company<input type="text" name="company" required></label>
+        <label>Email<input type="email" name="email" required></label>
+        <label>Message<textarea name="message" rows="4" placeholder="Scope, asset, timeline…"></textarea></label>
+        <button type="submit" class="btn btn-primary">Send</button>
+        <p class="form-note">This form logs to Google Sheets via your Web App URL.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© <span id="year"></span> TGSIMON — Anti‑Corrosion Protection & Remediation.</div>
+      <div><a href="#top">Back to top ↑</a></div>
+    </div>
+  </footer>
+
+  <!-- Assistant FAB -->
+  <button class="assistant-fab" title="Open Assistant" data-open-chat>💬</button>
+
+  <!-- Chat Modal -->
+  <div id="chat" class="chat hidden" role="dialog" aria-modal="true" aria-label="Online Assistant">
+    <div class="chat-window">
+      <header class="chat-header">
+        <strong>Online Assistant</strong>
+        <button class="chat-close" aria-label="Close chat">×</button>
+      </header>
+      <div class="chat-body" id="chatBody">
+        <div class="bubble bot">Hi! How can I support your anti‑corrosion needs?</div>
+      </div>
+      <form class="chat-input" id="chatForm">
+        <input id="chatText" type="text" placeholder="Type your message…" autocomplete="off" />
+        <button type="submit">Send</button>
+      </form>
+      <div class="chat-hint">Chat messages are logged to Google Sheets if WEB_APP_URL is set.</div>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
