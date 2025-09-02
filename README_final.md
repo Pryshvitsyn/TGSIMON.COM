@@ -8,7 +8,7 @@ Asia HQ with strong presence in Sweden & EU (partnership with 3CCC).
 ```
 index.html          # main site page
 css/styles.css      # site styles
-js/app.js           # chat logic, Google Sheets logging
+js/app.js           # chat logic, connects to n8n assistant
 images/logo.png     # company logo
 images/hero/hero.png   # main hero image
 images/works/       # carousel (example1..example6 placeholders)
@@ -30,15 +30,19 @@ images/works/       # carousel (example1..example6 placeholders)
      https://pryshvitsyn.github.io/TGSIMON.COM/
      ```
 
-## Google Sheets Integration
+## Assistant Integration
 
-- In `index.html`, set:
+- In `index.html` already set:
   ```html
   <script>
-    window.WEB_APP_URL = "YOUR_GOOGLE_SCRIPT_WEBAPP_URL";
+    window.WEB_APP_URL = "https://n8n.delsole.com/webhook/chat-tgsimon";
   </script>
   ```
-- Create an Apps Script that accepts POST and writes data to a sheet.
+- The chat sends user messages to that webhook.  
+- Expected JSON response from backend:
+  ```json
+  { "reply": "Your assistant message here" }
+  ```
 
 ## How to replace images
 
