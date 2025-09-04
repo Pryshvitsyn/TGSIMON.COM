@@ -8,6 +8,9 @@
   <link rel="stylesheet" href="css/styles.css">
   <script>
     window.WEB_APP_URL = "https://n8n.delsole.com/webhook/chat-tgsimon";
+    window.CHAT_API_URL = "https://n8n.delsole.com/webhook/chat-tgsimon";
+    window.OPENAI_API_KEY = ""; // optional: direct ChatGPT connection
+    window.FORM_URL = ""; // optional: Google Sheet & notification endpoint
   </script>
 </head>
 <body>
@@ -26,6 +29,7 @@
     <div class="container hero-content">
       <h1>Anti-Corrosion Protection for Pipelines & Industrial Assets</h1>
       <p>Surface preparation, coating & lining systems, inspection, maintenance, and remediation after failures by other providers. Operations across Asia with a Swedish partnership.</p>
+      <p class="surface-prep">Surface preparation, coating & lining systems, inspection, maintenance, and remediation after failures by other providers. Operations across Asia with a Swedish partnership.</p>
       <div class="hero-cta">
         <a href="#contact" class="btn btn-primary">Request a Quote</a>
         <button class="btn btn-secondary" data-open-chat>Chat</button>
@@ -33,10 +37,41 @@
     </div>
   </section>
 
+  <section id="corrosion" class="section">
+    <div class="container">
+      <h2>Why Protect Against Corrosion?</h2>
+      <p>Corrosion is the gradual degradation of metals through chemical reactions with the environment. Without proper protection, assets suffer leaks, structural failure, and expensive downtime. Protective coatings, cathodic protection and routine maintenance extend asset life and ensure safety.</p>
+    </div>
+  </section>
+
   <section id="overview" class="section">
     <div class="container">
       <h2>Overview</h2>
       <p>TGSIMON delivers services for pipelines, storage, marine, utilities, and industrial plants. We combine rapid response with rigorous QA/QC to extend asset life and reduce downtime.</p>
+      <p>TGSIMON delivers services for pipelines, storage, marine, utilities and industrial plants. We specialize in Cathodic Protection System design, implementation and management in all variety of assets. Our engineers evaluate corrosion threats, model current flow, select optimal anodes, oversee installation and provide long-term monitoring. The approach integrates coating, inspection and maintenance so infrastructure stays safe, efficient and compliant. We partner with clients to tailor programs that extend service life and cut downtime.</p>
+    </div>
+  </section>
+
+  <section id="products" class="section">
+    <div class="container">
+      <h2>Products</h2>
+      <div class="products-grid">
+        <article class="card">
+          <img src="images/works/example1.jpg" alt="X100 Epoxy Coating">
+          <h3>X100 Epoxy Coating</h3>
+          <p>High-performance epoxy system from 3CCC for pipelines and tanks.</p>
+        </article>
+        <article class="card">
+          <img src="images/works/example2.jpg" alt="Cathodic Protection Kit">
+          <h3>Cathodic Protection Kit</h3>
+          <p>Impressed current and sacrificial anodes preventing external corrosion.</p>
+        </article>
+        <article class="card">
+          <img src="images/works/example3.jpg" alt="Surface Prep Tools">
+          <h3>Surface Prep Tools</h3>
+          <p>Blast and cleaning equipment ensuring coating adhesion.</p>
+        </article>
+      </div>
     </div>
   </section>
 
@@ -50,32 +85,74 @@
 <figure class="car-item">
   <img src="images/works/example1.jpg" alt="Example 1">
   <figcaption>Example 1 — Short description.</figcaption>
+  <figcaption>Example 1 — Singapore, 2023, 2 weeks.</figcaption>
 </figure>
 
 <figure class="car-item">
   <img src="images/works/example2.jpg" alt="Example 2">
   <figcaption>Example 2 — Short description.</figcaption>
+  <figcaption>Example 2 — Jakarta, 2022, 10 days.</figcaption>
 </figure>
 
 <figure class="car-item">
   <img src="images/works/example3.jpg" alt="Example 3">
   <figcaption>Example 3 — Short description.</figcaption>
+  <figcaption>Example 3 — Manila, 2021, 3 weeks.</figcaption>
 </figure>
 
 <figure class="car-item">
   <img src="images/works/example4.jpg" alt="Example 4">
   <figcaption>Example 4 — Short description.</figcaption>
+  <figcaption>Example 4 — Bangkok, 2020, 1 month.</figcaption>
 </figure>
 
 <figure class="car-item">
   <img src="images/works/example5.jpg" alt="Example 5">
   <figcaption>Example 5 — Short description.</figcaption>
+  <figcaption>Example 5 — Kuala Lumpur, 2019, 2 weeks.</figcaption>
 </figure>
 
 <figure class="car-item">
   <img src="images/works/example6.jpg" alt="Example 6">
   <figcaption>Example 6 — Short description.</figcaption>
+  <figcaption>Example 6 — Hanoi, 2018, 8 days.</figcaption>
 </figure>
+        </div>
+        <button class="car-btn next" aria-label="Next">›</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery" class="section">
+    <div class="container">
+      <h2>Product Showcase</h2>
+      <div class="carousel" data-index="0">
+        <button class="car-btn prev" aria-label="Previous">‹</button>
+        <div class="car-track">
+          <figure class="car-item">
+            <img src="images/3ccc-1.png" alt="3CCC product 1">
+            <figcaption>this is the product what you can get if you will very want and contact us</figcaption>
+          </figure>
+          <figure class="car-item">
+            <img src="images/3ccc-2.png" alt="3CCC product 2">
+            <figcaption>this is the product what you can get if you will very want and contact us</figcaption>
+          </figure>
+          <figure class="car-item">
+            <img src="images/3ccc-3.png" alt="3CCC product 3">
+            <figcaption>this is the product what you can get if you will very want and contact us</figcaption>
+          </figure>
+          <figure class="car-item">
+            <img src="images/3ccc-4.png" alt="3CCC product 4">
+            <figcaption>this is the product what you can get if you will very want and contact us</figcaption>
+          </figure>
+          <figure class="car-item">
+            <img src="images/3ccc-5.png" alt="3CCC product 5">
+            <figcaption>this is the product what you can get if you will very want and contact us</figcaption>
+          </figure>
+          <figure class="car-item">
+            <img src="images/3ccc-6.png" alt="3CCC product 6">
+            <figcaption>this is the product what you can get if you will very want and contact us</figcaption>
+          </figure>
         </div>
         <button class="car-btn next" aria-label="Next">›</button>
       </div>
@@ -112,6 +189,11 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <div>© <span id="year"></span> TGSIMON — Anti-Corrosion Protection & Remediation.</div>
+      <div>© <span id="year">2024</span> TGSIMON. All rights reserved.</div>
+      <nav class="footer-links">
+        <a href="privacy.html">Privacy</a>
+        <a href="#">Terms</a>
+      </nav>
       <button class="btn btn-secondary" data-open-chat>Chat</button>
     </div>
   </footer>

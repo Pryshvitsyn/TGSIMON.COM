@@ -9,6 +9,8 @@ Asia HQ with strong presence in Sweden & EU (partnership with 3CCC).
 index.html          # main site page
 css/styles.css      # site styles
 js/app.js           # chat logic, connects to n8n assistant
+js/app.js           # chat & form logic
+privacy.html        # privacy policy
 images/logo.png     # company logo
 images/hero/hero.png   # main hero image
 images/works/       # carousel (example1..example6 placeholders)
@@ -43,6 +45,19 @@ images/works/       # carousel (example1..example6 placeholders)
   ```json
   { "reply": "Your assistant message here" }
   ```
+The chat widget can call either a custom webhook (`CHAT_API_URL`) or directly the OpenAI ChatGPT API.
+
+```html
+<script>
+  window.CHAT_API_URL = "https://n8n.delsole.com/webhook/chat-tgsimon";
+  window.OPENAI_API_KEY = ""; // optional, uses ChatGPT directly
+  window.FORM_URL = ""; // optional, Google Sheet & phone notification handler
+</script>
+```
+
+- If `OPENAI_API_KEY` is provided, messages are sent to the OpenAI API.
+- Otherwise `CHAT_API_URL` is used (expected JSON: `{ "reply": "..." }`).
+- `FORM_URL` receives contact form data (e.g. Google Apps Script).
 
 ## How to replace images
 
