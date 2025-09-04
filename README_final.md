@@ -45,19 +45,24 @@ images/works/       # carousel (example1..example6 placeholders)
   ```json
   { "reply": "Your assistant message here" }
   ```
-The chat widget can call either a custom webhook (`CHAT_API_URL`) or directly the OpenAI ChatGPT API.
+Configuration is kept in `js/config.js` (copy from `js/config.example.js` and **do not** commit the real file).
 
 ```html
-<script>
-  window.CHAT_API_URL = "https://n8n.delsole.com/webhook/chat-tgsimon";
-  window.OPENAI_API_KEY = ""; // optional, uses ChatGPT directly
-  window.FORM_URL = ""; // optional, Google Sheet & phone notification handler
-</script>
+<script src="js/config.js"></script>
+<script src="js/app.js"></script>
 ```
 
-- If `OPENAI_API_KEY` is provided, messages are sent to the OpenAI API.
+Inside `js/config.js` set:
+
+```js
+window.CHAT_API_URL = "https://n8n.delsole.com/webhook/chat-tgsimon"; // relay endpoint
+window.OPENAI_API_KEY = ""; // optional, direct OpenAI key
+window.FORM_URL = ""; // optional, Google Sheet & phone notification handler
+```
+
+- If `OPENAI_API_KEY` is provided, messages are sent directly to the OpenAI API.
 - Otherwise `CHAT_API_URL` is used (expected JSON: `{ "reply": "..." }`).
-- `FORM_URL` receives contact form data (e.g. Google Apps Script).
+- `FORM_URL` receives contact form data (e.g., Google Apps Script).
 
 ## How to replace images
 
