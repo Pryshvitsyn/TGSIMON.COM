@@ -63,6 +63,7 @@ window.FORM_URL = ""; // optional, Google Sheet & phone notification handler
 - If `OPENAI_API_KEY` is provided, messages are sent directly to the OpenAI API.
 - Otherwise `CHAT_API_URL` is used (expected JSON: `{ "reply": "..." }`).
 - `FORM_URL` receives contact form data (e.g., Google Apps Script).
+- If none are set, the assistant falls back to a small built-in knowledge base with canned responses.
 
 ## How to replace images
 
