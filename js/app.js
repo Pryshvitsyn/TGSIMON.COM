@@ -43,6 +43,15 @@ function addBubble(text, role='user'){
   chatBody.scrollTop = chatBody.scrollHeight;
 }
 
+function localReply(userText){
+  const t = userText.toLowerCase();
+  if(t.includes('hello') || t.includes('hi')) return 'Hello! How can I help you with anti-corrosion protection?';
+  if(t.includes('contact')) return 'You can reach us at contact@tgsimon.com or +65 8888 0000.';
+  if(t.includes('service')) return 'We offer cathodic protection, surface preparation, coatings and maintenance.';
+  if(t.includes('product')) return 'We supply 3CCC anodes, power units, surface prep tools and coatings.';
+  return 'Please contact our team for detailed assistance.';
+}
+
 async function sendToBackend(userText){
   if(!WEB_APP_URL){ addBubble("Backend not configured.", 'bot'); return; }
   try{
@@ -83,7 +92,7 @@ async function sendToBackend(userText){
     }catch(e){ addBubble("Error contacting assistant.", 'bot'); }
     return;
   }
-  addBubble("Backend not configured.", 'bot');
+  addBubble(localReply(userText), 'bot');
 }
 
 // Chat form
@@ -106,6 +115,7 @@ if(qf){
     addBubble("Request sent. We'll contact you at " + (data.email||'your email'), 'bot');
     if(WEB_APP_URL){
       await fetch(WEB_APP_URL, {
+    addBubble("Request sent. We'll contact you at " + (data.email || 'your email'), 'bot');
     if(FORM_URL){
       await fetch(FORM_URL, {
         method:'POST',
