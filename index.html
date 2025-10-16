@@ -10,15 +10,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    /* --- Modern Style Overrides --- */
+    /* --- Modern & Tech Style Overrides --- */
     :root {
-      --primary-color: #0052cc; /* A modern, professional blue */
-      --secondary-color: #f7fafc; /* A very light gray for section backgrounds */
-      --text-color: #1a202c; /* A dark, readable gray */
+      --primary-color: #0062ff; /* More vibrant tech blue */
+      --secondary-color: #f0f2f5; /* A cooler, cleaner light gray */
+      --text-color: #1d2129; /* A slightly softer black for text */
       --card-bg: #ffffff;
-      --border-radius: 12px;
-      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      --border-radius: 10px; /* Sharper corners */
+      --shadow-md: 0 2px 4px rgba(0,0,0,0.08);
+      --shadow-lg: 0 8px 16px rgba(0,0,0,0.08);
+      --tech-glow: 0 0 20px rgba(0, 98, 255, 0.2);
     }
 
     html {
@@ -38,9 +39,16 @@
     }
     
     .container {
-        max-width: 1100px;
-        margin: 0 auto;
-        padding: 0 15px;
+      width: 95%;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+
+    @media (min-width: 1200px) {
+      .container {
+        width: 80%;
+      }
     }
 
     /* --- Header & Navigation --- */
@@ -51,7 +59,11 @@
       top: 0;
       z-index: 100;
       border-bottom: 1px solid #e2e8f0;
-      box-shadow: var(--shadow-md);
+    }
+
+    .main-nav {
+      display: flex;
+      gap: 2.5rem;
     }
 
     .main-nav a {
@@ -80,6 +92,11 @@
     .main-nav a:hover::after {
       width: 100%;
     }
+    
+    /* --- Hero Section --- */
+    .hero-overlay {
+      background: linear-gradient(45deg, rgba(11, 22, 40, 0.75), rgba(23, 43, 77, 0.6));
+    }
 
     /* --- Buttons --- */
     .btn {
@@ -95,13 +112,14 @@
     }
 
     .btn-primary {
-      background-image: linear-gradient(45deg, #0052cc, #0066ff);
+      background-color: var(--primary-color);
       color: white;
     }
 
     .btn-primary:hover {
       transform: translateY(-3px);
-      box-shadow: var(--shadow-lg);
+      box-shadow: var(--shadow-lg), var(--tech-glow);
+      background-color: #005ae0;
     }
 
     .btn-secondary {
@@ -115,7 +133,7 @@
       color: white;
       border-color: var(--primary-color);
       transform: translateY(-3px);
-      box-shadow: 0 4px 10px rgba(0, 82, 204, 0.3);
+      box-shadow: var(--shadow-lg), var(--tech-glow);
     }
 
     /* --- Cards --- */
@@ -130,12 +148,24 @@
 
     .card:hover {
       transform: translateY(-8px);
-      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      box-shadow: var(--shadow-lg), var(--tech-glow);
     }
 
     /* --- Carousel --- */
     .carousel {
       position: relative;
+      overflow: hidden;
+    }
+
+    .car-track {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .car-item {
+      flex: 0 0 100%;
+      box-sizing: border-box;
+      padding: 0 10px; /* spacing between items */
     }
     
     .car-item img {
@@ -153,7 +183,7 @@
 
     .car-btn {
       position: absolute;
-      top: calc(50% - 40px);
+      top: 50%;
       transform: translateY(-50%);
       z-index: 10;
       background-color: rgba(255, 255, 255, 0.9);
@@ -175,11 +205,20 @@
     }
 
     .car-btn.prev {
-      left: -24px;
+      left: 10px;
     }
 
     .car-btn.next {
-      right: -24px;
+      right: 10px;
+    }
+    
+    @media (min-width: 768px) {
+      .car-btn.prev {
+        left: -24px;
+      }
+      .car-btn.next {
+        right: -24px;
+      }
     }
 
     /* --- Sections --- */
@@ -194,7 +233,37 @@
     .section h2 {
         font-size: 2.5rem;
         text-align: center;
-        margin-bottom: 40px;
+        margin-bottom: 50px;
+        position: relative;
+        padding-bottom: 20px;
+    }
+    
+    .section h2::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background-color: var(--primary-color);
+        border-radius: 2px;
+    }
+    
+    /* --- Contact Section --- */
+    .contact-wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    @media (min-width: 768px) {
+      .contact-wrap {
+        grid-template-columns: 2fr 3fr;
+        align-items: start;
+      }
     }
 
     /* --- Form --- */
@@ -211,7 +280,7 @@
     .form input:focus, .form textarea:focus {
         outline: none;
         border-color: var(--primary-color);
-        box-shadow: 0 0 0 3px rgba(0, 82, 204, 0.2);
+        box-shadow: 0 0 0 3px rgba(0, 98, 255, 0.25);
     }
     
     .form label {
@@ -219,10 +288,6 @@
         display: block;
     }
   </style>
-  <script>
-    window.WEB_APP_URL = "https://n8n.delsole.com/webhook/chat-tgsimon";
-  </script>
-  <script src="js/config.js"></script>
 </head>
 <body>
   <header class="site-header">
@@ -235,19 +300,21 @@
         <a href="#works">Works</a>
         <a href="#contact">Contact</a>
       </nav>
-      <a href="https://wa.me/6596245903" target="_blank" class="btn btn-secondary">WhatsApp</a>
+      <a href="https://wa.me/6596245903" target="_blank" class="btn btn-primary">WhatsApp</a>
     </div>
   </header>
 
   <section class="hero" id="top">
-    <img src="images/hero/hero.png" class="hero-image" alt="Anti-corrosion operations">
+    <div class="hero-image-container">
+        <img src="images/hero/hero.png" class="hero-image" alt="Anti-corrosion operations">
+    </div>
     <div class="hero-overlay"></div>
     <div class="container hero-content">
       <h1>Anti-Corrosion Protection for Pipelines & Industrial Assets</h1>
       <p class="surface-prep">Surface preparation, coating & lining systems, inspection, maintenance, and remediation after failures by other providers. Operations across Asia with a Swedish partnership.</p>
       <div class="hero-cta">
         <a href="#contact" class="btn btn-primary">Request a Quote</a>
-        <a href="https://wa.me/6596245903" target="_blank" class="btn btn-secondary">WhatsApp</a>
+        <a href="https://wa.me/6596245903" target="_blank" class="btn btn-secondary">Chat on WhatsApp</a>
       </div>
     </div>
   </section>
@@ -263,7 +330,7 @@
     <div class="container">
       <h2>Overview</h2>
       <p>TGSIMON delivers services for pipelines, storage, marine, utilities and industrial plants. We specialize in Cathodic Protection System design, implementation and management in all variety of assets. Our engineers evaluate corrosion threats, model current flow, select optimal anodes, oversee installation and provide long-term monitoring. The approach integrates coating, inspection and maintenance so infrastructure stays safe, efficient and compliant. We partner with clients to tailor programs that extend service life and cut downtime.</p>
-      <p>Furthermore, our extensive expertise allows us to remediate systems that have failed due to improper design or installation by other providers. We approach each remediation project with a thorough, case-by-case analysis to ensure a lasting solution.</p>
+      <p><strong>Furthermore, our extensive expertise allows us to remediate systems that have failed due to improper design or installation by other providers. We approach each remediation project with a thorough, case-by-case analysis to ensure a lasting solution.</strong></p>
     </div>
   </section>
 
@@ -273,27 +340,27 @@
       <div class="carousel" data-index="0">
         <button class="car-btn prev" aria-label="Previous">‹</button>
         <div class="car-track">
-          <figure class="car-item">
+          <figure class="car-item card">
             <img src="images/works/3c-mmo-ti-disc-anod.jpg" alt="Disc Anodes">
             <figcaption><strong>Disc Anodes</strong><br>Sacrificial anodes for protecting steel structures.</figcaption>
           </figure>
-          <figure class="car-item">
+          <figure class="car-item card">
             <img src="images/works/thor_control_unit.jpg" alt="ICCP Control Units">
             <figcaption><strong>ICCP Control Units</strong><br>Advanced control units for impressed current cathodic protection.</figcaption>
           </figure>
-          <figure class="car-item">
+          <figure class="car-item card">
             <img src="images/works/3c-switch-mode-likriktare-1.jpg" alt="Switch Mode Rectifiers">
             <figcaption><strong>Switch Mode Rectifiers</strong><br>High-efficiency power supplies for impressed current systems.</figcaption>
           </figure>
-          <figure class="car-item">
+          <figure class="car-item card">
             <img src="images/works/3x-test-post.jpg" alt="Test Posts">
             <figcaption><strong>Test Posts</strong><br>For monitoring and testing cathodic protection system effectiveness.</figcaption>
           </figure>
-          <figure class="car-item">
+          <figure class="car-item card">
             <img src="images/works/DataCell-logger.jpg" alt="Remote Data Loggers">
             <figcaption><strong>Remote Data Loggers</strong><br>Remote monitoring units for cathodic protection systems.</figcaption>
           </figure>
-          <figure class="car-item">
+          <figure class="car-item card">
             <img src="images/works/LC-probe-korrosionsdetektering.jpg" alt="Corrosion Probes">
             <figcaption><strong>Corrosion Probes</strong><br>Specialized probes for accurate corrosion detection.</figcaption>
           </figure>
@@ -309,27 +376,27 @@
       <div class="carousel" data-index="0">
         <button class="car-btn prev" aria-label="Previous">‹</button>
         <div class="car-track">
-          <figure class="car-item">
+          <figure class="car-item card">
             <img src="images/3ccc-1.png" alt="Example 1">
             <figcaption>Example 1 — Singapore, 2023, 2 weeks.</figcaption>
           </figure>
-          <figure class="car-item">
+          <figure class="car-item card">
             <img src="images/3ccc-2.png" alt="Example 2">
             <figcaption>Example 2 — Jakarta, 2022, 10 days.</figcaption>
           </figure>
-          <figure class="car-item">
+          <figure class="car-item card">
             <img src="images/3ccc-3.png" alt="Example 3">
             <figcaption>Example 3 — Manila, 2021, 3 weeks.</figcaption>
           </figure>
-          <figure class="car-item">
+          <figure class="car-item card">
             <img src="images/3ccc-4.png" alt="Example 4">
             <figcaption>Example 4 — Bangkok, 2020, 1 month.</figcaption>
           </figure>
-          <figure class="car-item">
+          <figure class="car-item card">
             <img src="images/3ccc-5.png" alt="Example 5">
             <figcaption>Example 5 — Kuala Lumpur, 2019, 2 weeks.</figcaption>
           </figure>
-          <figure class="car-item">
+          <figure class="car-item card">
             <img src="images/3ccc-6.png" alt="Example 6">
             <figcaption>Example 6 — Hanoi, 2018, 8 days.</figcaption>
           </figure>
@@ -346,7 +413,7 @@
         <div class="contact-info card">
           <p><strong>Address</strong><br>15 Industrial Park Road, Singapore 408600</p>
           <p><strong>Phone / WhatsApp</strong><br><a href="https://wa.me/6596245903" target="_blank">+65 9624 5903</a></p>
-          <p><strong>Email</strong><br>contact@tgsimon.com</p>
+          <p><strong>Email</strong><br><a href="mailto:daniel_tgsimon@singnet.com.sg">daniel_tgsimon@singnet.com.sg</a></p>
         </div>
         <form id="quote-form" class="card form neat">
           <label>Company
@@ -373,13 +440,62 @@
         <a href="privacy.html">Privacy</a>
         <a href="#">Terms</a>
       </nav>
-      <a href="https://wa.me/6596245903" target="_blank" class="btn btn-secondary">WhatsApp</a>
+      <a href="https://wa.me/6596245903" target="_blank" class="btn btn-primary">WhatsApp</a>
     </div>
   </footer>
 
-  <a href="https://wa.me/6596245903" target="_blank" class="assistant-fab" title="Chat on WhatsApp">💬</a>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Set current year in footer
+      const yearEl = document.getElementById('year');
+      if (yearEl) {
+        yearEl.textContent = new Date().getFullYear();
+      }
 
-  <script src="js/app.js"></script>
+      // Initialize all carousels
+      document.querySelectorAll('.carousel').forEach(carousel => {
+        const track = carousel.querySelector('.car-track');
+        if (!track) return;
+
+        const items = Array.from(track.children);
+        const prevBtn = carousel.querySelector('.prev');
+        const nextBtn = carousel.querySelector('.next');
+        
+        if (!prevBtn || !nextBtn || items.length === 0) return;
+
+        let currentIndex = 0;
+        const totalItems = items.length;
+        
+        function setCarouselWidths() {
+            const carouselWidth = carousel.getBoundingClientRect().width;
+            track.style.width = `${carouselWidth * totalItems}px`;
+            items.forEach(item => {
+                item.style.width = `${carouselWidth}px`;
+            });
+            updateCarouselPosition();
+        }
+
+        function updateCarouselPosition() {
+          const itemWidth = items[0].getBoundingClientRect().width;
+          const offset = -currentIndex * itemWidth;
+          track.style.transform = `translateX(${offset}px)`;
+        }
+
+        nextBtn.addEventListener('click', () => {
+          currentIndex = (currentIndex + 1) % totalItems;
+          updateCarouselPosition();
+        });
+
+        prevBtn.addEventListener('click', () => {
+          currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+          updateCarouselPosition();
+        });
+
+        window.addEventListener('resize', setCarouselWidths);
+        setCarouselWidths();
+      });
+    });
+  </script>
 </body>
 </html>
 
