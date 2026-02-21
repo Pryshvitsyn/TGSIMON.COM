@@ -1,0 +1,163 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700;800&family=Oswald:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Roboto+Condensed:wght@400;700;900&family=Lato:wght@400;700;800;900&family=Poppins:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,500&family=Anton&display=swap');
+
+@layer base {
+  :root {
+    --background: 218 35% 7%;
+    --foreground: 210 30% 92%;
+
+    --card: 218 30% 10%;
+    --card-foreground: 210 30% 92%;
+
+    --popover: 218 30% 10%;
+    --popover-foreground: 210 30% 92%;
+
+    --primary: 28 85% 52%;
+    --primary-foreground: 218 35% 7%;
+
+    --secondary: 213 40% 18%;
+    --secondary-foreground: 210 30% 92%;
+
+    --muted: 213 30% 14%;
+    --muted-foreground: 210 20% 58%;
+
+    --accent: 213 40% 22%;
+    --accent-foreground: 210 30% 92%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 213 30% 20%;
+    --input: 213 30% 18%;
+    --ring: 28 85% 52%;
+
+    --radius: 0.375rem;
+
+    /* Custom design tokens */
+    --navy-deep: 218 57% 9%;
+    --navy-mid: 213 45% 14%;
+    --navy-surface: 213 38% 18%;
+    --navy-elevated: 213 30% 22%;
+    --steel: 210 20% 45%;
+    --steel-light: 210 20% 65%;
+    --amber: 28 85% 52%;
+    --amber-light: 32 90% 62%;
+    --amber-glow: 28 85% 52%;
+
+    --gradient-hero: linear-gradient(135deg, hsl(218 57% 5%) 0%, hsl(213 45% 12%) 50%, hsl(218 57% 8%) 100%);
+    --gradient-section: linear-gradient(180deg, hsl(218 35% 7%) 0%, hsl(213 38% 9%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(213 38% 12%) 0%, hsl(213 30% 16%) 100%);
+    --gradient-amber: linear-gradient(135deg, hsl(28 85% 52%) 0%, hsl(35 90% 58%) 100%);
+    --gradient-overlay: linear-gradient(180deg, hsl(218 57% 5% / 0.6) 0%, hsl(218 57% 5% / 0.95) 100%);
+
+    --shadow-card: 0 4px 24px hsl(218 57% 3% / 0.6);
+    --shadow-glow: 0 0 30px hsl(28 85% 52% / 0.2);
+    --shadow-nav: 0 2px 20px hsl(218 57% 3% / 0.8);
+
+    --font-display: 'Barlow Condensed', sans-serif;
+    --font-body: 'Inter', sans-serif;
+
+    --sidebar-background: 218 35% 7%;
+    --sidebar-foreground: 210 30% 92%;
+    --sidebar-primary: 28 85% 52%;
+    --sidebar-primary-foreground: 218 35% 7%;
+    --sidebar-accent: 213 40% 18%;
+    --sidebar-accent-foreground: 210 30% 92%;
+    --sidebar-border: 213 30% 20%;
+    --sidebar-ring: 28 85% 52%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    background: hsl(var(--navy-deep));
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer components {
+  .section-heading {
+    font-family: var(--font-display);
+    @apply text-4xl md:text-5xl font-bold tracking-wide uppercase;
+  }
+
+  .section-label {
+    @apply text-xs font-semibold tracking-[0.2em] uppercase;
+    color: hsl(var(--amber));
+  }
+
+  .gradient-text {
+    background: var(--gradient-amber);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .card-surface {
+    background: var(--gradient-card);
+    border: 1px solid hsl(var(--border));
+    box-shadow: var(--shadow-card);
+  }
+
+  .card-surface:hover {
+    border-color: hsl(var(--amber) / 0.3);
+    box-shadow: var(--shadow-card), var(--shadow-glow);
+  }
+
+  .divider-amber {
+    height: 3px;
+    width: 60px;
+    background: var(--gradient-amber);
+  }
+
+  .nav-link {
+    @apply text-sm font-medium tracking-wide transition-colors duration-200;
+    color: hsl(var(--steel-light));
+    font-family: var(--font-body);
+  }
+
+  .nav-link:hover {
+    color: hsl(var(--amber));
+  }
+
+  .btn-primary {
+    background: var(--gradient-amber);
+    color: hsl(var(--navy-deep));
+    @apply font-semibold tracking-wide px-6 py-3 rounded transition-all duration-200;
+    font-family: var(--font-body);
+  }
+
+  .btn-primary:hover {
+    box-shadow: var(--shadow-glow);
+    transform: translateY(-1px);
+  }
+
+  .btn-outline {
+    @apply font-semibold tracking-wide px-6 py-3 rounded transition-all duration-200;
+    border: 1.5px solid hsl(var(--amber) / 0.6);
+    color: hsl(var(--amber));
+    font-family: var(--font-body);
+    background: transparent;
+  }
+
+  .btn-outline:hover {
+    background: hsl(var(--amber) / 0.08);
+    border-color: hsl(var(--amber));
+  }
+}
