@@ -71,7 +71,7 @@ export default function Contact() {
                 <div>
                   <p className="text-xs tracking-widest uppercase font-semibold mb-1" style={{ color: "hsl(var(--steel-light))" }}>Address</p>
                   <p className="text-sm" style={{ color: "hsl(var(--foreground))" }}>
-                    15 Industrial Park Road<br />Singapore 408600
+                    50, Serangoon North Avenue 4 #03-02<br />First Centre Singapore 555856
                   </p>
                 </div>
               </div>
