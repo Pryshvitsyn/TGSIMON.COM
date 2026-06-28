@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 140" role="img" aria-labelledby="title desc">
+  <title id="title">TGS logo</title>
+  <desc id="desc">Blue boxed red TGS letters</desc>
+  <rect x="8" y="8" width="212" height="124" fill="#ffffff" stroke="#0077cc" stroke-width="4" />
+  <text x="114" y="98" text-anchor="middle" font-family="Times New Roman, Georgia, serif" font-size="92" font-weight="700" fill="#e5192a">TGS</text>
+</svg>
