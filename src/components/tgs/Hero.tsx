@@ -45,7 +45,7 @@ export default function Hero() {
           className="section-heading mb-6 leading-tight"
           style={{ color: "hsl(var(--foreground))" }}
         >
-          ADVANCED CORROSIAN MANAGEMENT WITH CATHODIC PROTECTION SYSTEMS SOLUTIONS
+          ADVANCED CORROSION MANAGEMENT WITH CATHODIC PROTECTION SYSTEMS SOLUTIONS
         </h1>
 
         {/* Sub-headline */}
