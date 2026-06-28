@@ -45,11 +45,7 @@ export default function Hero() {
           className="section-heading mb-6 leading-tight"
           style={{ color: "hsl(var(--foreground))" }}
         >
-          Advanced Corrosion Management
-          <br />
-          <span className="gradient-text">&amp; Cathodic Protection</span>
-          <br />
-          Solutions
+          ADVANCED CORROSIAN MANAGEMENT WITH CATHODIC PROTECTION SYSTEMS SOLUTIONS
         </h1>
 
         {/* Sub-headline */}
