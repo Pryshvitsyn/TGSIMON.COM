@@ -75,7 +75,7 @@ export default function Hero() {
           {[
             { value: "20+", label: "Years Experience" },
             { value: "Global", label: "Project Footprint" },
-            { value: "Full", label: "Lifecycle Support" },
+            { value: "CONTINUOUS", label: "SUPPORT" },
           ].map((s) => (
             <div key={s.label} className="text-center">
               <div
