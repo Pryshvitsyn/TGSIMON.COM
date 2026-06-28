@@ -34,7 +34,7 @@ export default function Hero() {
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center pt-24">
         {/* Label */}
         <p className="section-label mb-6">
-          Global Corrosion Engineering
+          ADVANCED CATHODIC PROTECTION SYSTEMS FOR GLOBAL INDUSTRIES
         </p>
 
         {/* Amber accent line */}
