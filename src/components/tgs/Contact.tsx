@@ -9,18 +9,52 @@ export default function Contact() {
     phone: "",
     project: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const subject = encodeURIComponent("Technical Consultation Request — TG Simon");
-    const body = encodeURIComponent(
-      `Name: ${form.name}\nCompany: ${form.company}\nPhone: ${form.phone}\n\nProject Description:\n${form.project}`
-    );
-    window.location.href = `mailto:tgsimon@singnet.com.sg?subject=${subject}&body=${body}`;
+    setIsSubmitting(true);
+    setSubmitStatus("idle");
+
+    try {
+      const response = await fetch("https://formspree.io/f/mqevlapa", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: form.name,
+          company: form.company,
+          email: form.email,
+          phone: form.phone,
+          message: form.project,
+          _subject: "Technical Consultation Request — TG Simon",
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Form submission failed");
+      }
+
+      setSubmitStatus("success");
+      setForm({
+        name: "",
+        company: "",
+        email: "",
+        phone: "",
+        project: "",
+      });
+    } catch {
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const inputStyle = {
@@ -188,12 +222,26 @@ export default function Contact() {
                 onBlur={(e) => (e.target.style.borderColor = "hsl(var(--border))")}
               />
             </div>
+
+            {submitStatus === "success" && (
+              <p className="text-sm" style={{ color: "hsl(var(--amber))" }}>
+                Thank you — your request has been sent successfully.
+              </p>
+            )}
+
+            {submitStatus === "error" && (
+              <p className="text-sm" style={{ color: "#f87171" }}>
+                Sorry, something went wrong. Please try again.
+              </p>
+            )}
+
             <button
               type="submit"
-              className="btn-primary w-full flex items-center justify-center gap-2 text-sm"
+              disabled={isSubmitting}
+              className="btn-primary w-full flex items-center justify-center gap-2 text-sm disabled:opacity-60 disabled:cursor-not-allowed"
             >
               <Send size={15} />
-              Request Technical Consultation
+              {isSubmitting ? "Sending..." : "Request Technical Consultation"}
             </button>
           </form>
         </div>
