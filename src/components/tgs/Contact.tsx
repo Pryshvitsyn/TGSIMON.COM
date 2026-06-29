@@ -20,7 +20,7 @@ export default function Contact() {
     const body = encodeURIComponent(
       `Name: ${form.name}\nCompany: ${form.company}\nPhone: ${form.phone}\n\nProject Description:\n${form.project}`
     );
-    window.location.href = `mailto:daniel_tgsimon@singnet.com.sg?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:tgsimon@singnet.com.sg?subject=${subject}&body=${body}`;
   };
 
   const inputStyle = {
@@ -105,11 +105,11 @@ export default function Contact() {
                 <div>
                   <p className="text-xs tracking-widest uppercase font-semibold mb-1" style={{ color: "hsl(var(--steel-light))" }}>Email</p>
                   <a
-                    href="mailto:daniel_tgsimon@singnet.com.sg"
+                    href="mailto:tgsimon@singnet.com.sg"
                     className="text-sm hover:underline"
                     style={{ color: "hsl(var(--foreground))" }}
                   >
-                    daniel_tgsimon@singnet.com.sg
+                    tgsimon@singnet.com.sg
                   </a>
                 </div>
               </div>
