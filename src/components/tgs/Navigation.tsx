@@ -35,7 +35,7 @@ export default function Navigation() {
         borderBottom: scrolled ? "1px solid hsl(var(--border))" : "none",
       }}
     >
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
+      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16 relative">
         {/* Logo */}
         <a href="#home" className="flex items-center gap-2">
           <img
@@ -44,12 +44,20 @@ export default function Navigation() {
             className="h-10 w-auto object-contain"
           />
           <span
-            className="hidden sm:block text-[9px] tracking-[0.18em] uppercase"
+            className="hidden lg:block text-[9px] tracking-[0.18em] uppercase"
             style={{ color: "hsl(var(--amber))" }}
           >
-            Corrosion Engineering
+            Cathodic Protection
           </span>
         </a>
+
+        {/* Centered Mobile Header Phrase */}
+        <span
+          className="absolute left-1/2 -translate-x-1/2 lg:hidden text-[10px] tracking-[0.16em] uppercase whitespace-nowrap"
+          style={{ color: "hsl(var(--amber))" }}
+        >
+          Cathodic Protection
+        </span>
 
         {/* Desktop Nav */}
         <nav className="hidden lg:flex items-center gap-7">
