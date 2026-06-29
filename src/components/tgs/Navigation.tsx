@@ -53,8 +53,8 @@ export default function Navigation() {
 
         {/* Centered Mobile Header Phrase */}
         <span
-          className="absolute left-1/2 -translate-x-1/2 lg:hidden text-[10px] tracking-[0.16em] uppercase whitespace-nowrap"
-          style={{ color: "hsl(var(--amber))" }}
+          className="absolute left-1/2 -translate-x-1/2 lg:hidden text-[10px] font-bold tracking-[0.16em] uppercase whitespace-nowrap"
+          style={{ color: "#ffffff" }}
         >
           Cathodic Protection
         </span>
